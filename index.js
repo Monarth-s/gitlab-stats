@@ -74,7 +74,7 @@ app.get('/contributor/stats/:email', async function(req, res, next) {
     template['styles'][selected_theme].forEach((ele, index) => {
         templateClone = templateClone.replace(`__CHANGE_${index}`, ele);
     });
-
+    
     templateClone = templateClone.replace('__TOTAL_COMMITS__', totalCommits);
     templateClone = templateClone.replace('__TOTAL_REPOS__', totalRepos);
 
@@ -95,6 +95,14 @@ app.get('/contributor/stats/:email', async function(req, res, next) {
     }]);
 
     let max = (maxCommits.length) ? maxCommits[0].max : 0;
+
+    let precent = 100 * totalCommits / max;
+
+    const maxCirlcle = 251.32741228718345;
+
+    let circle = maxCirlcle * precent / 100;
+
+    templateClone = templateClone.replace('__RANK_CIRCLE', maxCirlcle - circle);
 
     templateClone = templateClone.replace('__RANK__', calculateRank(max, totalCommits));
 
