@@ -1,0 +1,22 @@
+{
+  "name": "gitlab-stats",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "env-cmd nodemon index.js",
+    "repl": "env-cmd node"
+  },
+  "keywords": [],
+  "author": "Monarth <monarth.s@yudiz.in>",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "env-cmd": "^10.1.0",
+    "express": "^4.18.1",
+    "mongoose": "^6.8.0"
+  }
+}
